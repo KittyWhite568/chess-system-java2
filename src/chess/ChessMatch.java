@@ -20,20 +20,19 @@ public class ChessMatch {
 				for (int j=0; j<board.getColumns(); j++) {
 					mat[i][j] = (ChessPiece) board.piece(i, j);
 				}
-			}
+			}	
 			return mat;
-		
 	}
 		
+		private void placeNewPiece (char column, int row, ChessPiece piece) {
+			board.placePiece(piece, new ChessPosition(row, column).toPosition());
+				
+		}
 		
 		private void initialSetup() {
-			board.placePiece(new Rook(board, Color.WHITE), new Position(2, 1));
-<<<<<<< HEAD
-			board.placePiece(new King(board, Color.BLACK), new Position(2, 1));
-=======
-			board.placePiece(new King(board, Color.BLACK), new Position(0, 4));
->>>>>>> a5097031a2cd100c5b2ace5a2f3a88c44332f07b
-			board.placePiece(new King(board, Color.WHITE), new Position(7, 4));
+			placeNewPiece('b', 6, new Rook(board, Color.WHITE));
+			placeNewPiece('e', 8, new King(board, Color.BLACK));
+			placeNewPiece('e', 1, new King(board, Color.WHITE));
 		}
 
 }
